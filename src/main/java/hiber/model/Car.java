@@ -1,8 +1,11 @@
 package hiber.model;
 
 
-import javax.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+@Component
 @Entity
 @Table(name = "cars")
 public class Car {
@@ -23,7 +26,7 @@ public class Car {
     public Car() {
 
     }
-
+    @Autowired
     public Car(String model, int series) {
         this.model = model;
         this.series = series;
