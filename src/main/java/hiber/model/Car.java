@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-@Component
+
 @Entity
 @Table(name = "cars")
 public class Car {
@@ -20,13 +20,10 @@ public class Car {
     @Column(name = "series")
     private int series;
 
-    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
-    private User user;
-
     public Car() {
 
     }
-    @Autowired
+
     public Car(String model, int series) {
         this.model = model;
         this.series = series;
@@ -56,12 +53,5 @@ public class Car {
         this.series = series;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
 }
